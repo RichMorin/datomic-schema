@@ -1,0 +1,23 @@
+[ 
+{:db/id #db/id[:db.part/db],
+:db/ident :book/title,
+:db/cardinality :db.cardinality/one,
+:db/valueType :db.type/string
+:db.install/_attribute :db.part/db}
+ 
+{:db/id #db/id[:db.part/db],
+:db/ident :book/author,
+:db/cardinality :db.cardinality/many,
+:db/valueType :db.type/ref
+:db/index true
+:db/fulltext true
+:db.install/_attribute :db.part/db}
+ 
+{:db/id #db/id[:db.part/db],
+:db/ident :book/ISBN,
+:db/cardinality :db.cardinality/one,
+:db/valueType :db.type/string
+:db/unique :db.unique/identity
+:db/index true
+:db.install/_attribute :db.part/db}
+]

@@ -1,0 +1,3 @@
+book title one string
+book author many ref index fulltext
+book ISBN one string unique-id index

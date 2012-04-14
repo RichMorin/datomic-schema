@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+class Attribute
+  def initialize(options)
+    @entity = options[0]
+    @attribute_name = options[1]
+    @cardinality = options[2]
+    @value_type = options[3]
+    @unique = nil
+    @index = nil
+    @fulltext = nil
+    @isComponent = nil
+    @noHistory = nil
+  end
+
+  def unique=(uniq)
+    @unique = uniq
+  end
+
+  def index=(ind)
+    @index = ind
+  end
+
+  def fulltext=(ft)
+    @fulltext = ft
+  end
+
+  def isComponent=(iC)
+    @isComponent = iC
+  end
+
+  def noHistory=(nH)
+    @noHistory = nh
+  end
+
+  def to_s
+    base_str = %[ 
+{:db/id #db/id[:db.part/db],
+:db/ident :#{@entity}/#{@attribute_name},
+:db/cardinality :db.cardinality/#{@cardinality},
+:db/valueType :db.type/#{@type}
+]
+    if @unique
+      base_str += ",\n :db/unique :db.unique/#{@unique}"
+    end
+    if @index
+      base_str += ",\n :db/index true"
+    end
+    if @fulltext
+      base_str += ",\n :db/fulltext true"
+    end
+    if @isComponent
+      base_str += ",\n :db/isComponent true"
+    end
+    if @noHistory
+      base_str += ",\n :db/noHistory true"
+    end
+    base_str += "}"
+  end
+
+end
+
+Attribute.new(['a','b','one','string']).to_s

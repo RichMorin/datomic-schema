@@ -60,28 +60,25 @@ class Attribute
 
 end
 
-class Parser
-  def initialize(filename)
-    file = File.open('schema.dtm', 'w')
-    file.write('[')
-    IO.foreach(filename) do |line|
-      options = line.split
-      attr = Attribute.new(options[0..3])
-      if options.length > 4 then options[4..-1].each do |opt|
-          case opt
-            when "unique-id" then attr.unique = "identity"
-            when "unique-val" then attr.unique = "value"
-            when "index" then attr.index = "true"
-            when "fulltext" then attr.fulltext = "true"
-            when "component" then attr.isComponent = "true"
-            when "noHistory" then attr.noHistory = "true"
-          end
-        end
+
+
+file = File.open('schema.dtm', 'w')
+file.write('[')
+IO.foreach(ARGV[0]) do |line|
+  options = line.split
+  attr = Attribute.new(options[0..3])
+  if options.length > 4 then options[4..-1].each do |opt|
+      case opt
+      when "unique-id" then attr.unique = "identity"
+      when "unique-val" then attr.unique = "value"
+      when "index" then attr.index = "true"
+      when "fulltext" then attr.fulltext = "true"
+      when "component" then attr.isComponent = "true"
+      when "noHistory" then attr.noHistory = "true"
       end
-      file.write(attr)
     end
-    file.write(']')
   end
+  file.write(attr)
 end
-        
-Parser.new(ARGV[0])
+file.write(']')
+file.close

@@ -1,4 +1,6 @@
-[ 
+[
+;;this is a comment
+ 
 {:db/id #db/id[:db.part/db],
 :db/ident :book/title,
 :db/cardinality :db.cardinality/one,
@@ -12,6 +14,8 @@
 :db/index true
 :db/fulltext true
 :db.install/_attribute :db.part/db}
+
+;so is this
  
 {:db/id #db/id[:db.part/db],
 :db/ident :book/ISBN,

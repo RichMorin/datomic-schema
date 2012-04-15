@@ -1,3 +1,7 @@
+;;this is a comment
+
 book title one string
 book author many ref index fulltext
+
+;so is this
 book ISBN one string unique-id index

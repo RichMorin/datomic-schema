@@ -41,6 +41,13 @@ Options may include zero or more of the following:
 The presence of options other than `unique-*` indicate that you want
 them to appear as `true`; `unique-*` specifies a type of uniqueness.
 
+### Comments
+
+Comments start with a semicolon (`;`). Write your comments on a new
+line.  They will be carried over into the translated schema.
+
+Blank lines are OK but they will not be preserved.
+
 ## Why is this in Ruby?
 
 I tried it in Clojure, first. The problem I ran into was that Clojure wants

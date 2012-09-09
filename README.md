@@ -25,7 +25,7 @@ entity-name attribute-name cardinality valueType & options
 `cardinality` may be either `one` or `many`
 
 `valueType` may be any of the valid
-[Datomic value types]("http://datomic.com/company/resources/schema").
+[Datomic value types]("http://doc.datomic.com/schema.html").
 
 Note that instead of writing `db.type/string` (for instance) you would
 just write `string`.
